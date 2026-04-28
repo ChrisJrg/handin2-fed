@@ -1,56 +1,25 @@
 import './App.css'
-import {useState} from "react";
-import {useNavigate} from "react-router";
-export function ControlledForm(){
-    const initialValues = {password: '', userName: ''};
-    const [state, setState] = useState(initialValues);
-    const Navigate = useNavigate();
+import {Routes, Route, Navigate} from "react-router-dom";
+import CreateManager from "./pages/Managers/CreateManager.jsx"
+import CreateModel from "./pages/Models/CreateModel.jsx"
+import ControlledForm from "./pages/Login.jsx"
 
 
-    function handleChange(event){
-        setState({password: event.target.value});
-        setState({userName: event.target.value});
-    }
-
-    async function handleSubmit(event){
-        alert('Logged in successfully!');
-        event.preventDefault();
-
-        let url = "http://localhost:8000/";
-        try {
-            const response = await fetch(url, {
-                method: "POST",
-                body: JSON.stringify({password: state.password, userName: state.userName}),
-                headers: new Headers({
-                    "Content-Type": "application/json",
-                })
-            });
-            if (response.ok) {
-                let token = await response;
-                localStorage.setItem("token", token.jwt);
-
-
-            }else{
-                alert("Server returned: " + response.statusText);
-            }
-        }catch(err){
-            alert("error: " + err);
-        }
-    }
-
+export function App() {
 
   return (
     <>
-     <section>
-         <form onSubmit={handleSubmit}>
-             <label>Login</label>
-             <input placeholder="Username" type="text" value={state.userName} onChange={handleChange} />
-             <input placeholder="Password" type="password" value={state.password} onChange={handleChange} />
-             <button type="submit">Submit</button>
-         </form>
-     </section>
+    <Routes >
+        <Route path="/" element={<ControlledForm/>}></Route>
+
+        <Route path="/jobs" element={<CreateManager/>} />
+        <Route path="/my-jobs" element={<CreateModel/>} />
+
+
+        <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
     </>
   )
 }
 
-export default ControlledForm
+export default App
