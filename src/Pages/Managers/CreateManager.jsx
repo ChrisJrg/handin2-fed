@@ -1,13 +1,23 @@
 
-
 export function CreateManager(){
     return(
         <>
-            <div>
-                <h1>hej</h1>
+            <h1>Create Manager</h1>
+            <section>
+                <form>
+                    <label>First Name</label>
+                    <input placeholder={"First Name"}/>
 
+                    <label>Last Name</label>
+                    <input placeholder={"Last Name"}/>
 
-            </div>
+                    <label>Email</label>
+                    <input placeholder={"Email"}/>
+
+                    <label>Password</label>
+                    <input placeholder={"Password"}/>
+                </form>
+            </section>
         </>
     )
 }
