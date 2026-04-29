@@ -8,3 +8,17 @@ form{
     flex-direction: column;
     width: 50%;
 }
+
+input{
+    background-color: aliceblue;
+    padding:6px;
+    border-radius: 15px;
+    color:black;
+    width: 65%;
+    margin: 5px;
+
+}
+
+::placeholder{
+    color: black;
+}

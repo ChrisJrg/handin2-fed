@@ -15,7 +15,7 @@ export function App() {
 
         <Route path="/jobs" element={<CreateManager/>} />
         <Route path="/my-jobs" element={<MyJobs/>} />
-        <Route path="/create-models" element={<CreateModel/>} />
+        <Route path="/create-model" element={<CreateModel/>} />
 
 
 
