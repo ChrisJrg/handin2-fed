@@ -1,4 +1,5 @@
 import "../../Styles/Style.css"
+import "../../Styles/CreateModel.css"
 
 export function CreateModel(){
 
@@ -8,7 +9,7 @@ export function CreateModel(){
             <div><text>Create model</text></div>
             <section>
             <form>
-                <label id="input_title">Enter your email <br/>
+                <label id="input_title">Enter your email* <br/>
                     <input required="true" type="email" name="email" id="email" placeholder="Enter your email" />
                 </label>
 
@@ -56,7 +57,7 @@ export function CreateModel(){
                     <input type="textarea" name="comments" id="comments" placeholder="Enter your comments" />
                 </label>
 
-                <input type="submit" value="Submit"/>
+                <button type="submit" value="Submit">Submit</button>
             </form>
             </section>
         </>
