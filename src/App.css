@@ -1,8 +1,6 @@
 section{
-    height:auto;
     display: flex;
     justify-content: center;
-    background-color: blue;
 }
 
 form{
@@ -14,41 +12,6 @@ form{
     align-self: center;
 }
 
-.navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(89, 89, 89);
-}
-
-
-.nav-link {
-    display: block;
-    float: left;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.nav-link-logOut{
-    display: block;
-    float: right;
-    color: white;
-    background-color: red;
-    border: none;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-.nav-link-logOut.active {
-    background-color: green;
-}
-
-.nav-link.active {
-    background-color: green;
-}
 
 input{
     background-color: aliceblue;

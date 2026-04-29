@@ -4,7 +4,7 @@ export function CreateManager(){
     return(
         <>
             <div>
-                <h1>Create manager</h1>
+                <h1>hej</h1>
 
 
             </div>

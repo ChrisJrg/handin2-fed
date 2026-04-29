@@ -1,53 +1,17 @@
-import './App.css'
-import {Routes, Route, Navigate, NavLink} from "react-router-dom";
-import CreateManager from "./pages/Managers/CreateManager.jsx"
-import CreateModel from "./pages/Models/CreateModel.jsx"
-import ControlledForm from "./pages/Login.jsx"
-import MyJobs from "./pages/Models/MyJobs.jsx"
+import './App.css';
+import Navbar from "./Components/Navbar.jsx";
+import {Navigate, Route, Routes} from "react-router-dom";
+import ControlledForm from "./Pages/Login.jsx";
+import CreateManager from "./Pages/Managers/CreateManager.jsx";
+import MyJobs from "./Pages/Models/MyJobs.jsx";
+import CreateModel from "./Pages/Models/CreateModel.jsx";
 
 
 export function App() {
 
   return (
       <>
-        <nav className={"navbar"}>
-
-            <NavLink
-                to={"/jobs"}
-                className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
-            >
-                Jobs
-            </NavLink>
-
-            <NavLink
-                to={"/my-jobs"}
-                className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
-            >
-                My Jobs
-            </NavLink>
-
-            <NavLink
-                to={"/create-models"}
-                className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
-            >
-                Create a Model
-            </NavLink>
-
-            <NavLink
-                to={"/create-managers"}
-                className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
-            >
-                Create a Manager
-            </NavLink>
-
-            <NavLink
-                to={"/"}
-                className={({ isActive }) => isActive ? "nav-link-logOut active" : "nav-link-logOut"}
-            >
-                Logout
-            </NavLink>
-
-        </nav>
+          <Navbar/>
           <Routes>
               <Route path="/" element={<ControlledForm/>}></Route>
 
