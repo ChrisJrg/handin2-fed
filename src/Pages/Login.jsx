@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {decodeToken} from "../Hooks/Hook.js"
+import {decodeToken} from "../Hooks/TokenHook.jsx"
 
 export function ControlledForm(){
     const [email, setEmail] = useState('');
