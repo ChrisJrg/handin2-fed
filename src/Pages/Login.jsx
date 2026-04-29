@@ -1,4 +1,3 @@
-import "../App.css"
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {decodeToken} from "../Hooks/Hook.js"
@@ -42,7 +41,7 @@ export function ControlledForm(){
     return (
             <section>
                 <form onSubmit={handleSubmit}>
-                    <label>Login</label>
+                    <h2>Login</h2>
                     <input placeholder="Email" type="text" value={email} onChange={(event) => setEmail(event.target.value)}/>
                     <input placeholder="Password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
                     <button type="submit">Submit</button>

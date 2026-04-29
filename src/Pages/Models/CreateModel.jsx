@@ -6,9 +6,10 @@ export function CreateModel(){
 
     return(
         <>
-            <div><text>Create model</text></div>
             <section>
             <form>
+                <h2>Create Model</h2>
+
                 <label id="input_title">Enter your email* <br/>
                     <input required="true" type="email" name="email" id="email" placeholder="Enter your email" />
                 </label>
