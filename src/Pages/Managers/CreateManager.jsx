@@ -3,7 +3,11 @@
 export function CreateManager(){
     return(
         <>
-        <div><text>Create manager</text></div>
+            <div>
+                <h1>Create manager</h1>
+
+
+            </div>
         </>
     )
 }
