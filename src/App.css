@@ -7,18 +7,20 @@ form{
     display: flex;
     flex-direction: column;
     width: 50%;
-    background-color: red;
     justify-content: center;
-    align-self: center;
+    align-items: center;
 }
 
+label{
+    width: 60%;
+}
 
 input{
     background-color: aliceblue;
     border-radius: 10px;
     padding:4px;
     color:black;
-    width: 65%;
+    width: 100%;
     margin: 6px auto;
 }
 
