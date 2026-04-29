@@ -3,6 +3,7 @@ import {Routes, Route, Navigate} from "react-router-dom";
 import CreateManager from "./pages/Managers/CreateManager.jsx"
 import CreateModel from "./pages/Models/CreateModel.jsx"
 import ControlledForm from "./pages/Login.jsx"
+import MyJobs from "./pages/Models/MyJobs.jsx"
 
 
 export function App() {
@@ -13,7 +14,9 @@ export function App() {
         <Route path="/" element={<ControlledForm/>}></Route>
 
         <Route path="/jobs" element={<CreateManager/>} />
-        <Route path="/my-jobs" element={<CreateModel/>} />
+        <Route path="/my-jobs" element={<MyJobs/>} />
+        <Route path="/create-models" element={<CreateModel/>} />
+
 
 
         <Route path="*" element={<Navigate to="/" />} />
