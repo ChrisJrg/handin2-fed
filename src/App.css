@@ -44,3 +44,17 @@ form{
 .nav-link.active {
     background-color: green;
 }
+input{
+    background-color: aliceblue;
+    padding:6px;
+    border-radius: 15px;
+    color:black;
+    width: 65%;
+    margin: 5px;
+
+}
+
+::placeholder{
+    color: black;
+}
+
