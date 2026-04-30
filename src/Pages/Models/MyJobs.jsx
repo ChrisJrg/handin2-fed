@@ -1,5 +1,6 @@
 import "../../Styles/MyJobs.css"
 import {useEffect, useState} from "react";
+import edit_png from "../../assets/pencil-edit-button.svg";
 
 
 export function MyJobs(){
@@ -38,7 +39,7 @@ export function MyJobs(){
                     <text>Location: {job.location}</text>
                     <text>Extra information: {job.comments}</text>
                     </section>
-                    <button><image src={edit_pen.png}></image></button>
+                    <button><img id="edit" src={edit_png} alt="edit" /></button>
                 </section>
             ))}
 
