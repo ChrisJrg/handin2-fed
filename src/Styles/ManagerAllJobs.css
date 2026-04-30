@@ -1,0 +1,43 @@
+#job-container-outer {
+    display: flex;
+    flex-direction: row;
+    width: 29%;
+    border-radius: 10px;
+    border: 2px solid #13132a;
+    background-color: #dadff5;
+    margin: 15px;
+
+    button{
+        border: 2px dashed black;
+        width: 10%;
+        height: 10%;
+        margin-right: 10px;
+        border-radius: 250px;
+        padding:3px;
+
+    }
+
+}
+
+#edit{
+    width: 77%;
+}
+#job-container{
+    margin: 10px;
+    display:flex;
+    flex-direction: column;
+    padding: 12px;
+    color: black;
+
+
+    text{
+        margin:3px;
+    }
+}
+
+#models-container{
+    margin: 10px;
+    display:flex;
+    flex-direction: column;
+    color: black;
+}

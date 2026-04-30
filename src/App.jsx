@@ -5,6 +5,7 @@ import ControlledForm from "./Pages/Login.jsx";
 import CreateManager from "./Pages/Managers/CreateManager.jsx";
 import MyJobs from "./Pages/Models/MyJobs.jsx";
 import CreateModel from "./Pages/Models/CreateModel.jsx";
+import ManagerAllJobs from "./Pages/Managers/ManagerAllJobs.jsx";
 import ModelJob from "./Pages/Models/MyJob.jsx";
 
 
@@ -16,7 +17,7 @@ export function App() {
           <Routes>
               <Route path="/" element={<ControlledForm/>}></Route>
 
-              <Route path="/jobs" element={<CreateManager/>}/>
+              <Route path="/jobs" element={<ManagerAllJobs/>}/>
               <Route path="/my-jobs" element={<MyJobs/>}/>
               <Route path="/create-models" element={<CreateModel/>}/>
               <Route path="/create-managers" element={<CreateManager/>}/>
