@@ -2,6 +2,7 @@
 import {useEffect, useState} from "react";
 import edit_png from "../../assets/pencil-edit-button.svg";
 import "../../Styles/ManagerAllJobs.css"
+import {Link} from "react-router-dom";
 
 export function ManagerAllJobs() {
     const [Mjobs, setMJobs] = useState([]);
@@ -34,8 +35,8 @@ export function ManagerAllJobs() {
         <>
             <h1>All Jobs</h1>
             {Mjobs.map((job) => (
-                <section id="job-container-outer"  key={job.jobId}>
-                    <section id="job-container">
+                <section id="manager-job-container-outer"  key={job.jobId}>
+                    <section id="manager-job-container">
                         <p>Customer: {job.customer}</p>
                         <p>Start date: {job.startDate}</p>
                         <p>Duration in days: {job.days}</p>
@@ -47,7 +48,9 @@ export function ManagerAllJobs() {
                             </section>
                         ))}
                     </section>
-                    <button><img id="edit" src={edit_png} alt="edit" /></button>
+                    <Link to={`/jobs/${job.id}`}>
+                        <button><img id="edit" src={edit_png} alt="edit" /></button>
+                    </Link>
                 </section>
             ))}
         </>
