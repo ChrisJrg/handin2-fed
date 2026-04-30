@@ -24,7 +24,7 @@ export function ManagerAllJobs() {
                 setLoading(false);
             })
             .catch(error => console.error('Error:', error));
-    })
+    }, [])
     if (loading) return <p>Loading...</p>;
 
 
@@ -36,14 +36,14 @@ export function ManagerAllJobs() {
             {Mjobs.map((job) => (
                 <section id="job-container-outer"  key={job.jobId}>
                     <section id="job-container">
-                        <text>Customer: {job.customer}</text>
-                        <text>Start date: {job.startDate}</text>
-                        <text>Duration in days: {job.days}</text>
-                        <text>Location: {job.location}</text>
-                        <text>Extra information: {job.comments}</text>
+                        <p>Customer: {job.customer}</p>
+                        <p>Start date: {job.startDate}</p>
+                        <p>Duration in days: {job.days}</p>
+                        <p>Location: {job.location}</p>
+                        <p>Extra information: {job.comments}</p>
                         {job.models.map(model => (
                             <section id={"models-container"} key={model.modelId}>
-                                <text>Model Name: <br/> {model.firstName} {model.lastName}</text>
+                                <p>Model Name: <br/> {model.firstName} {model.lastName}</p>
                             </section>
                         ))}
                     </section>
