@@ -1,7 +1,7 @@
 #job-container-outer {
     display: flex;
     flex-direction: row;
-    width: 29%;
+    width: 33%;
     border-radius: 10px;
     border: 2px solid #13132a;
     background-color: #dadff5;
