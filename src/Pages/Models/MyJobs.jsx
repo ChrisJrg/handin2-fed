@@ -41,11 +41,9 @@ export function MyJobs(){
                     <text>Extra information: {job.comments}</text>
                     </section>
 
-                    <nav>
                         <Link to={`/my-jobs/:${job.jobId}`}>
                     <button ><img id="edit" src={edit_png} alt="edit" /></button>
                         </Link>
-                    </nav>
                 </section>
             ))}
 
