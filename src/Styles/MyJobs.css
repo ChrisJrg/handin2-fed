@@ -1,0 +1,36 @@
+#job-container-outer {
+    display: flex;
+    flex-direction: row;
+    width: 29%;
+    border-radius: 10px;
+    border: 2px solid #13132a;
+    background-color: #dadff5;
+    margin: 15px;
+
+
+    button{
+        background-color: #1fd2ca;
+        border: none;
+        width: 10%;
+        height: 7%;
+        border-radius: 100px;
+        margin-right: 10px;
+    }
+
+}
+
+#job-container{
+    margin: 10px;
+    display:flex;
+    flex-direction: column;
+    padding: 12px;
+    color: black;
+    background-color: red;
+
+
+    text{
+        margin:3px;
+    }
+
+
+}

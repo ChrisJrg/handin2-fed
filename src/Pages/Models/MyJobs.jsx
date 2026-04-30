@@ -1,11 +1,46 @@
-
-
+import "../../Styles/MyJobs.css"
+import {useEffect, useState} from "react";
 
 
 export function MyJobs(){
+    const [jobs, setJobs] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+
+    useEffect(()=>{
+        let url = "http://localhost:8080/api/Jobs";
+        fetch(url, {
+            method: "GET",
+            credentials: 'include',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("token"),
+            }
+        }).then(response =>
+            response.json())
+            .then(data => {
+                setJobs(data);
+                setLoading(false);
+            })
+            .catch(error => console.error('Error:', error));
+    })
+    if (loading) return <p>Loading...</p>;
+
     return(
         <>
             <div><text>My Jobs</text></div>
+            {jobs.map((job) => (
+                <section id="job-container-outer"  key={job.jobId}>
+                    <section id="job-container">
+                    <text>Customer: {job.customer}</text>
+                    <text>Start date: {job.startDate}</text>
+                    <text>Duration in days: {job.days}</text>
+                    <text>Location: {job.location}</text>
+                    <text>Extra information: {job.comments}</text>
+                    </section>
+                    <button><image src={edit_pen.png}></image></button>
+                </section>
+            ))}
 
         </>
     )
