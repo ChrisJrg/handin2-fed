@@ -72,7 +72,7 @@ export function CreateManager(){
                         />
                     </label>
 
-                    <button type={"submit"} >SELL YOUR SOUL</button>
+                    <button type={"submit"} >SUBMIT</button>
                 </form>
             </section>
         </>

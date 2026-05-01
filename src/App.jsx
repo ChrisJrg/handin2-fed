@@ -27,7 +27,7 @@ export function App() {
               <Route path="/my-jobs/:jobId" element={<ModelJob/>}/>
               <Route path="/expenses/:jobId" element={<JobExpenses/>}/>
               <Route path="/createJob" element={<CreateJob/>}/>
-              <Route path="/Edit/:modelId" element={<EditModelOnJob/>}/>
+              <Route path="/Edit/:jobId" element={<EditModelOnJob/>}/>
 
 
               <Route path="*" element={<Navigate to="/"/>}/>

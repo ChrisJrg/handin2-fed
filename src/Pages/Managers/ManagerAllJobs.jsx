@@ -35,7 +35,7 @@ export function ManagerAllJobs() {
     return(
         <>
             <h1>All Jobs</h1>
-            <button onClick={() => navigate(`/createJob`)}><p>CREATE A JOB NI**ER</p></button>
+            <button onClick={() => navigate(`/createJob`)}><p>CREATE A JOB</p></button>
             <section id="general-job-container">
             {Mjobs.map((job) => (
                 <section id="manager-job-container-outer"  key={job.jobId}>
@@ -53,7 +53,7 @@ export function ManagerAllJobs() {
                     </section>
                     <section className={"edit-button"}>
                         <button onClick={() => navigate(`/expenses/${job.jobId}`)}><p>Expenses</p></button>
-                        <button onClick={() => navigate(`/Edit/${job.modelId}`)}><p>Edit Models</p></button>
+                        <button onClick={() => navigate(`/Edit/${job.jobId}`)}><p>Edit Models</p></button>
                     </section>
                 </section>
             ))}

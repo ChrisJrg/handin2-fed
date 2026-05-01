@@ -19,9 +19,8 @@
         border: none;
         height: 40px;
         width: auto;
-        border-radius: 20%;
+        border-radius: 5px;
         flex-shrink:0;
-        padding:10px;
         margin-right: 15px;
 
 
@@ -44,6 +43,7 @@
     flex-direction: column;
     padding: 15px;
     color: black;
+    justify-content: normal;
 
 
     text{
@@ -58,6 +58,7 @@
 
 }
 .edit-button{
-         display: flex;
-         flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
 }

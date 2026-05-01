@@ -1,6 +1,8 @@
 import {jwtDecode} from "jwt-decode";
 
 export function decodeToken(token) {
+
+    if (!token) {return null}
     let decoded = jwtDecode(token);
 
     return {decoded,
