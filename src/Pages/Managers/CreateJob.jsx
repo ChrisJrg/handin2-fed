@@ -1,13 +1,14 @@
 import {useState} from "react";
 
-export function CreateManager(){
-    const [formData, setFormData] = useState({firstname: "", lastname: "", email: "", password: ""});
+
+export function CreateJob() {
+    const [formData, setFormData] = useState({customer: "", startdate: "", days: "", location: "", comments: ""});
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
     };
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e){
         e.preventDefault();
         try {
             const response = fetch('http://localhost:8080/api/Managers', {
@@ -37,41 +38,48 @@ export function CreateManager(){
     return(
         <>
             <h1>Create Manager</h1>
+
             <section>
                 <form onSubmit={handleSubmit}>
                     <label>
-                        First Name
-                        <input name={"firstname"} required={true} type={"text"} placeholder={"First Name"} id={"firstname"}
-                               value={formData.firstname}
+                        Customer Name:
+                        <input name={"customer"} required={true} type={"text"} placeholder={"Customer"} id={"customer"}
+                               value={formData.customer}
                                onChange={handleChange}
                         />
                     </label>
 
                     <label>
-                        Last Name
-                        <input name={"lastname"} required={true} type={"text"} placeholder={"Last Name"} id={"lastname"}
-                        value={formData.lastname}
-                        onChange={handleChange}
-                        />
-                    </label>
-
-
-                    <label>
-                        Email
-                        <input name={"email"} required={true} type={"email"} placeholder={"Email"} id={"email"}
-                        value={formData.email}
-                        onChange={handleChange}
+                        Start Date:
+                        <input name={"startdate"} required={true} type={"text"} placeholder={"Start Date"} id={"startdate"}
+                               value={formData.startdate}
+                               onChange={handleChange}
                         />
                     </label>
 
                     <label>
-                        Password
-                        <input name={"password"} required={true} type={"password"} placeholder={"Password"} id={"password"}
-                        value={formData.password}
-                        onChange={handleChange}
+                        days:
+                        <input name={"days"} required={true} type={"text"} placeholder={"Days"} id={"days"}
+                               value={formData.days}
+                               onChange={handleChange}
                         />
                     </label>
 
+                    <label>
+                        Location:
+                        <input name={"location"} required={true} type={"text"} placeholder={"location"} id={"location"}
+                               value={formData.location}
+                               onChange={handleChange}
+                        />
+                    </label>
+
+                    <label>
+                        Comments:
+                        <input name={"comments"} required={true} type={"text"} placeholder={"comments"} id={"comments"}
+                               value={formData.comments}
+                               onChange={handleChange}
+                        />
+                    </label>
                     <button type={"submit"} >SELL YOUR SOUL</button>
                 </form>
             </section>
@@ -79,4 +87,4 @@ export function CreateManager(){
     )
 }
 
-export default CreateManager
+export default CreateJob

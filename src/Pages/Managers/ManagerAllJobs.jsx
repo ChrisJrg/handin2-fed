@@ -48,7 +48,7 @@ export function ManagerAllJobs() {
                             </section>
                         ))}
                     </section>
-                    <Link to={`/jobs/${job.id}`}>
+                    <Link>
                         <button><img id="edit" src={edit_png} alt="edit" /></button>
                     </Link>
                 </section>
