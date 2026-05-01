@@ -5,19 +5,14 @@ import {useState} from "react";
 
 
 export function CreateModel(){
-    const headers = {
-        'Authorization': 'Bearer ' + localStorage.getItem("token"),
-        'Content-Type': 'application/json',
-    };
-
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
+    const [phoneNo, setPhoneNo] = useState('');
     const [addressLine1, setAddressLine1] = useState('');
     const [addressLine2, setAddressLine2] = useState('');
-    const [zipcode, setZipcode] = useState('');
+    const [zip, setZip] = useState('');
     const [city, setCity] = useState('');
     const [country, setCountry] = useState('');
     const [birthDate, setBirthDate] = useState('');
@@ -26,10 +21,15 @@ export function CreateModel(){
     const [eyeColor, setEyeColor] = useState('');
     const [hairColor, setHairColor] = useState('');
     const [shoeSize, setShoeSize] = useState('');
-    const [comment, setComment] = useState('');
+    const [comments, setComments] = useState('');
 
     async function handleSubmit(event){
         event.preventDefault();
+
+        const headers = {
+            'Authorization': 'Bearer ' + localStorage.getItem("token"),
+            'Content-Type': 'application/json',
+        };
 
         let url = "http://localhost:8080/api/Models";
         try{
@@ -40,19 +40,19 @@ export function CreateModel(){
                     firstName,
                     lastName,
                     email,
-                    phone,
+                    phoneNo,
                     addressLine1,
                     addressLine2,
-                    zipcode,
+                    zip,
                     city,
                     country,
                     birthDate,
                     nationality,
                     height,
                     shoeSize,
-                    eyeColor,
                     hairColor,
-                    comment
+                    eyeColor,
+                    comments
                 }),
                 credentials: "include",
                 headers,
@@ -90,7 +90,7 @@ export function CreateModel(){
                 </label>
 
                 <label id="input_title"> Enter your phone number* <br/>
-                    <input required={true} type="text" name="phonenumber" id="phonenumber" placeholder="Enter your phonenumber" onChange={(event) => setPhone(event.target.value)}/>
+                    <input required={true} type="number" name="phonenumber" id="phonenumber" placeholder="Enter your phonenumber" onChange={(event) => setPhoneNo(event.target.value)}/>
                 </label>
 
                 <label id="input_title"> Enter your first address* <br/>
@@ -98,11 +98,11 @@ export function CreateModel(){
                 </label>
 
                 <label id="input_title">Enter your second address <br/>
-                    <input type="text" name="seconstaddress" id="seconstaddress" placeholder="Enter your second address" onChange={(event) => setAddressLine2(event.target.value)}/>
+                    <input required={true} type="text" name="seconstaddress" id="seconstaddress" placeholder="Enter your second address" onChange={(event) => setAddressLine2(event.target.value)}/>
                 </label>
 
                 <label id="input_title">Enter your zip code <br/>
-                    <input type="text" name="zipcode" id="zipcode" placeholder="Enter your zip code" onChange={(event) => setZipcode(event.target.value)}/>
+                    <input required={true} type="number" name="zipcode" id="zipcode" placeholder="Enter your zip code" onChange={(event) => setZip(event.target.value)}/>
                 </label>
 
 
@@ -124,7 +124,7 @@ export function CreateModel(){
                 </label>
 
                 <label id="input_title">Enter your height <br/>
-                    <input type="text" name="height" id="height" placeholder="Enter your height" onChange={(event) => setHeight(event.target.value)}/>
+                    <input required={true} type="number" name="height" id="height" placeholder="Enter your height" onChange={(event) => setHeight(event.target.value)}/>
                 </label>
 
                 <label id="input_title">Enter your eye color* <br/>
@@ -136,11 +136,11 @@ export function CreateModel(){
                 </label>
 
                 <label id="input_title">Enter your shoe size <br/>
-                    <input type="text" name="shoesize" id="shoesize" placeholder="Enter your shoe size" onChange={(event) => setShoeSize(event.target.value)}/>
+                    <input required={true} type="number" name="shoesize" id="shoesize" placeholder="Enter your shoe size" onChange={(event) => setShoeSize(event.target.value)}/>
                 </label>
 
                 <label id="input_title"> Enter any comments <br/>
-                    <input type="textarea" name="comments" id="comments" placeholder="Enter your comments" onChange={(event) => setComment(event.target.value)}/>
+                    <input required={true} type="textarea" name="comments" id="comments" placeholder="Enter your comments" onChange={(event) => setComments(event.target.value)}/>
                 </label>
 
                 <button type="submit" value="Submit">Submit</button>
