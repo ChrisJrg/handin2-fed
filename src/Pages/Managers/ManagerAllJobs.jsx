@@ -2,11 +2,13 @@
 import {useEffect, useState} from "react";
 import edit_png from "../../assets/pencil-edit-button.svg";
 import "../../Styles/ManagerAllJobs.css"
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+
 
 export function ManagerAllJobs() {
     const [Mjobs, setMJobs] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
 
     useEffect(()=>{
@@ -34,11 +36,12 @@ export function ManagerAllJobs() {
     return(
         <>
             <h1>All Jobs</h1>
+            <section id="general-job-container">
             {Mjobs.map((job) => (
                 <section id="manager-job-container-outer"  key={job.jobId}>
                     <section id="manager-job-container">
                         <p>Customer: {job.customer}</p>
-                        <p>Start date: {job.startDate}</p>
+                        <p>Start date: {job.startDate.split("T")[0]}</p>
                         <p>Duration in days: {job.days}</p>
                         <p>Location: {job.location}</p>
                         <p>Extra information: {job.comments}</p>
@@ -48,11 +51,10 @@ export function ManagerAllJobs() {
                             </section>
                         ))}
                     </section>
-                    <Link to={`/jobs/${job.id}`}>
-                        <button><img id="edit" src={edit_png} alt="edit" /></button>
-                    </Link>
+                        <button onClick={() => navigate(`/expenses/${job.jobId}`)}><p>Expenses</p></button>
                 </section>
             ))}
+            </section>
         </>
     )
 }

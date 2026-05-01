@@ -35,6 +35,7 @@ export function MyJobs(){
     return(
         <>
             <div><text>My Jobs</text></div>
+            <section id="general-model-job-container">
             {jobs.map((job) => (
                 <section id="job-container-outer"  key={job.jobId}>
                     <section id="job-container">
@@ -48,7 +49,7 @@ export function MyJobs(){
                     <button onClick={() => navigate(`/my-jobs/${job.jobId}`)}><img id="edit" src={edit_png} alt="edit" /></button>
                 </section>
             ))}
-
+        </section>
         </>
     )
 }

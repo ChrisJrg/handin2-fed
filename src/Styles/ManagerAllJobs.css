@@ -1,7 +1,15 @@
+#general-job-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+
 #manager-job-container-outer {
     display: flex;
     flex-direction: row;
-    width: 33%;
+    width: 30%;
     border-radius: 10px;
     border: 2px solid #13132a;
     background-color: #dadff5;
