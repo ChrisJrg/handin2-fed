@@ -11,7 +11,7 @@ export function CreateJob() {
     async function handleSubmit(e){
         e.preventDefault();
         try {
-            const response = fetch('http://localhost:8080/api/Managers', {
+            const response = await fetch('http://localhost:8080/api/Jobs', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 credentials: 'include',
@@ -21,7 +21,7 @@ export function CreateJob() {
                 }
             });
             if (response.ok) {
-                alert("Successfully created manager");
+                alert("Successfully created a job");
                 console.log(response);
             }else{
                 alert("Server returned: "+ response.statusText);
@@ -37,7 +37,7 @@ export function CreateJob() {
 
     return(
         <>
-            <h1>Create Manager</h1>
+            <h1>Create a job</h1>
 
             <section>
                 <form onSubmit={handleSubmit}>
@@ -51,14 +51,14 @@ export function CreateJob() {
 
                     <label>
                         Start Date:
-                        <input name={"startdate"} required={true} type={"text"} placeholder={"Start Date"} id={"startdate"}
+                        <input name={"startdate"} required={true} type={"date"} placeholder={"Start Date"} id={"startdate"}
                                value={formData.startdate}
                                onChange={handleChange}
                         />
                     </label>
 
                     <label>
-                        days:
+                        Days:
                         <input name={"days"} required={true} type={"text"} placeholder={"Days"} id={"days"}
                                value={formData.days}
                                onChange={handleChange}

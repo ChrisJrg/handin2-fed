@@ -10,7 +10,7 @@ export function CreateManager(){
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            const response = fetch('http://localhost:8080/api/Managers', {
+            const response = await fetch('http://localhost:8080/api/Managers', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 credentials: 'include',
