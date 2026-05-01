@@ -1,47 +1,67 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import "../../Styles/MyJob.css"
+import {decodeToken} from "../../Hooks/TokenHook.jsx";
 
 
 export function ModelJob(){
         const {jobId} = useParams();
-        const [job, setJob] = useState(null);
-        const [loading, setLoading] = useState(true);
+        const [amount , setAmount] = useState(null);
+        const [text, setText] = useState('');
+        const local_token = localStorage.getItem("token");
+        const decoded_token = decodeToken(local_token);
+        const date = new Date().toISOString();
+        const modelId = decoded_token.modelId;
 
+    async function newExpense(event) {
+        event.preventDefault();
 
-        useEffect(()=>{
-            let url = `http://localhost:8080/api/Jobs/${jobId}`;
-            fetch(url, {
-                method: "GET",
+        let url = `http://localhost:8080/api/Expenses`;
+        try {
+            const response = await fetch(url, {
+                method: "POST",
                 credentials: 'include',
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": "Bearer " + localStorage.getItem("token"),
-                }
-            }).then(response =>
-                response.json())
-                .then(data => {
-                    setJob(data);
-                    setLoading(false);
+                },
+                body: JSON.stringify({
+                    modelId,
+                    jobId,
+                    date,
+                    text,
+                    amount
                 })
-                .catch(error => console.error('Error:', error));
-        }, [jobId]);
-        if (loading) return <p>Loading...</p>;
+            })
+            if(response.ok){
+                alert("Expense successfully created!");
+                setAmount('');
+                setText('');
+
+            }
+        }
+        catch(err) {
+            console.log(err)
+        }
+    }
+
 
     return(
         <>
-            <section>
-                <section id="single-job" key={job.jobId}>
-                    <p>Customer: {job.customer}</p>
-                    <p>Start date: {job.startDate.split("T")[0]}</p>
-                    <p>Duration in days: {job.days}</p>
-                    <p>Location: {job.location}</p>
-                    <p>Extra information: {job.comments}</p>
-                </section>
+            <section id="single-job">
+                <h1>Create a new expense</h1>
+                <br/>
+               <form onSubmit={newExpense}>
+                   <label> Enter details about expense <br/>
+                   <input required={true} type="text" name="details" placeholder="Enter details about expense" onChange={(event) => setText(event.target.value)}/>
+                   </label>
 
-                <section id="model-single-job-expense">
-                    <p>Expenses</p>
-                </section>
+                   <label> Enter the amount of your expense <br/>
+                       <input required={true} type="number" name="amount" placeholder="Enter the amount of your expense" onChange={(event) => setAmount(event.target.value)}/>
+                   </label>
+
+                   <button type="submit" value="submit">Submit</button>
+               </form>
             </section>
         </>
     )

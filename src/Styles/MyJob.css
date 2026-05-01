@@ -3,14 +3,11 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    width: 35%;
+    width: 100%;
     align-self: center;
     margin-top: 25px;
     color:black;
-
-    p{
-        margin :15px;
-    }
+    align-items: center;
 }
 
 #model-single-job-expense{
