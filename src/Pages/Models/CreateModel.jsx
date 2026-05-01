@@ -61,7 +61,7 @@ export function CreateModel(){
                 alert('New Model was successfully created!');
             }else{
                 const errorBody = await response.json();
-                console.log(errorBody);
+                console.log(errorBody.error);
                 alert("Error: " + JSON.stringify(errorBody));
 
             }
