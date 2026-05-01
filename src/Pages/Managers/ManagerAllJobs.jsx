@@ -36,6 +36,7 @@ export function ManagerAllJobs() {
     return(
         <>
             <h1>All Jobs</h1>
+            <button onClick={() => navigate(`/createJob`)}><p>CREATE A JOB NI**ER</p></button>
             <section id="general-job-container">
             {Mjobs.map((job) => (
                 <section id="manager-job-container-outer"  key={job.jobId}>
