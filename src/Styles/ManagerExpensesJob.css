@@ -1,0 +1,12 @@
+#expenses-general-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#expense-single-container{
+    width: 29%;
+    margin:15px;
+    padding:5px;
+    background-color: #dadff5;
+}
