@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
+import "../../Styles/MyJob.css"
 
 
 export function ModelJob(){
@@ -29,14 +30,19 @@ export function ModelJob(){
 
     return(
         <>
-        <div><text>One very nice job</text></div>
-                <section key={job.jobId}>
-                    <text>Customer: {job.customer}</text>
-                    <text>Start date: {job.startDate}</text>
-                    <text>Duration in days: {job.days}</text>
-                    <text>Location: {job.location}</text>
-                    <text>Extra information: {job.comments}</text>
+            <section>
+                <section id="single-job" key={job.jobId}>
+                    <p>Customer: {job.customer}</p>
+                    <p>Start date: {job.startDate.split("T")[0]}</p>
+                    <p>Duration in days: {job.days}</p>
+                    <p>Location: {job.location}</p>
+                    <p>Extra information: {job.comments}</p>
                 </section>
+
+                <section id="model-single-job-expense">
+                    <p>Expenses</p>
+                </section>
+            </section>
         </>
     )
 
