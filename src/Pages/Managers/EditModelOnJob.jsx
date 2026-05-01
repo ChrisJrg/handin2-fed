@@ -8,8 +8,8 @@ export function EditModelOnJob() {
     const [job, setJob] = useState(null);
     const [model, setModel] = useState([]);
     const [selectedModel, setSelectedModel] = useState("");
+    const [deleteSelectedModel, setDeleteSelectedModel] = useState("");
     const local_token = localStorage.getItem("token");
-
 
     useEffect(() => {
         let url = `http://localhost:8080/api/Jobs/${jobId}`;
@@ -46,7 +46,7 @@ export function EditModelOnJob() {
             }).catch((error) => {
             console.log(error);
         });
-    }, [job, local_token]);
+    }, [local_token]);
 
     async function AddModel(e) {
         e.preventDefault();
@@ -61,7 +61,16 @@ export function EditModelOnJob() {
             });
             if (response.ok) {
                 alert("Successfully added model");
-                console.log(response);
+                const updated = await fetch(`http://localhost:8080/api/Jobs/${jobId}`, {
+                    method: "GET",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${local_token}`
+                    }
+                });
+                const updatedJob = await updated.json();
+                setJob(updatedJob);
             }else{
                 alert("Server returned: "+ response.statusText);
                 console.log(response);
@@ -74,8 +83,8 @@ export function EditModelOnJob() {
     async function RemoveModel(e) {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:8080/api/Jobs/${jobId}/model/${selectedModel}`, {
-                method: 'POST',
+            const response = await fetch(`http://localhost:8080/api/Jobs/${jobId}/model/${deleteSelectedModel}`, {
+                method: 'DELETE',
                 credentials: 'include',
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token'),
@@ -84,7 +93,16 @@ export function EditModelOnJob() {
             });
             if (response.ok) {
                 alert("Successfully removed model");
-                console.log(response);
+                const updated = await fetch(`http://localhost:8080/api/Jobs/${jobId}`, {
+                    method: "GET",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${local_token}`
+                    }
+                });
+                const updatedJob = await updated.json();
+                setJob(updatedJob);
             }else{
                 alert("Server returned: "+ response.statusText);
                 console.log(response);
@@ -124,8 +142,8 @@ export function EditModelOnJob() {
                 <form className={"addmodel"} onSubmit={RemoveModel}>
                     <label>Select a model to remove</label>
                     <select
-                        value={selectedModel}
-                        onChange={(e) => setSelectedModel(e.target.value)}
+                        value={deleteSelectedModel}
+                        onChange={(e) => setDeleteSelectedModel(e.target.value)}
                     >
                         <option>None</option>
                         {include.map((m) => (
