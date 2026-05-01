@@ -1,6 +1,5 @@
 
 import {useEffect, useState} from "react";
-import edit_png from "../../assets/pencil-edit-button.svg";
 import "../../Styles/ManagerAllJobs.css"
 import {useNavigate} from "react-router-dom";
 
@@ -52,7 +51,10 @@ export function ManagerAllJobs() {
                             </section>
                         ))}
                     </section>
+                    <section className={"edit-button"}>
                         <button onClick={() => navigate(`/expenses/${job.jobId}`)}><p>Expenses</p></button>
+                        <button onClick={() => navigate(`/Edit/${job.modelId}`)}><p>Edit Models</p></button>
+                    </section>
                 </section>
             ))}
             </section>

@@ -9,6 +9,7 @@ import ManagerAllJobs from "./Pages/Managers/ManagerAllJobs.jsx";
 import ModelJob from "./Pages/Models/MyJob.jsx";
 import JobExpenses from "./Pages/Managers/ManagerExpensesJob.jsx";
 import CreateJob from "./Pages/Managers/CreateJob.jsx";
+import EditModelOnJob from "./Pages/Managers/EditModelOnJob.jsx";
 
 
 export function App() {
@@ -26,6 +27,7 @@ export function App() {
               <Route path="/my-jobs/:jobId" element={<ModelJob/>}/>
               <Route path="/expenses/:jobId" element={<JobExpenses/>}/>
               <Route path="/createJob" element={<CreateJob/>}/>
+              <Route path="/Edit/:modelId" element={<EditModelOnJob/>}/>
 
 
               <Route path="*" element={<Navigate to="/"/>}/>
