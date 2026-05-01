@@ -1,6 +1,6 @@
 
 import {useEffect, useState} from "react";
-import edit_png from "../../assets/pencil-edit-button.svg";
+//import edit_png from "../../assets/pencil-edit-button.svg";
 import "../../Styles/ManagerAllJobs.css"
 import {useNavigate} from "react-router-dom";
 
