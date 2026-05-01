@@ -97,11 +97,11 @@ export function CreateModel(){
                     <input required={true} type="text" name="firstaddress" id="firstaddress" placeholder="Enter your first address" onChange={(event) => setAddressLine1(event.target.value)}/>
                 </label>
 
-                <label id="input_title">Enter your second address <br/>
+                <label id="input_title">Enter your second address* <br/>
                     <input required={true} type="text" name="seconstaddress" id="seconstaddress" placeholder="Enter your second address" onChange={(event) => setAddressLine2(event.target.value)}/>
                 </label>
 
-                <label id="input_title">Enter your zip code <br/>
+                <label id="input_title">Enter your zip code* <br/>
                     <input required={true} type="number" name="zipcode" id="zipcode" placeholder="Enter your zip code" onChange={(event) => setZip(event.target.value)}/>
                 </label>
 
@@ -123,7 +123,7 @@ export function CreateModel(){
                 <input required={true} type="date" name="birthdate" id="birthdate" placeholder="Enter your birthdate" onChange={(event) => setBirthDate(event.target.value)}/>
                 </label>
 
-                <label id="input_title">Enter your height <br/>
+                <label id="input_title">Enter your height* <br/>
                     <input required={true} type="number" name="height" id="height" placeholder="Enter your height" onChange={(event) => setHeight(event.target.value)}/>
                 </label>
 
@@ -135,11 +135,11 @@ export function CreateModel(){
                     <input required={true} type="text" name="haircolor" id="haircolor" placeholder="Enter your hair color" onChange={(event) => setHairColor(event.target.value)}/>
                 </label>
 
-                <label id="input_title">Enter your shoe size <br/>
+                <label id="input_title">Enter your shoe size* <br/>
                     <input required={true} type="number" name="shoesize" id="shoesize" placeholder="Enter your shoe size" onChange={(event) => setShoeSize(event.target.value)}/>
                 </label>
 
-                <label id="input_title"> Enter any comments <br/>
+                <label id="input_title"> Enter any comments* <br/>
                     <input required={true} type="textarea" name="comments" id="comments" placeholder="Enter your comments" onChange={(event) => setComments(event.target.value)}/>
                 </label>
 
