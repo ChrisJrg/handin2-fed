@@ -46,7 +46,7 @@ export function CreateModel(){
                     zip,
                     city,
                     country,
-                    birthDate,
+                    birthDate: new Date(birthDate).toISOString(),
                     nationality,
                     height,
                     shoeSize,
@@ -59,6 +59,11 @@ export function CreateModel(){
             });
             if(response.ok){
                 alert('New Model was successfully created!');
+            }else{
+                const errorBody = await response.json();
+                console.log(errorBody.error);
+                alert("Error: " + JSON.stringify(errorBody));
+
             }
         }
         catch(err){
@@ -90,7 +95,7 @@ export function CreateModel(){
                 </label>
 
                 <label id="input_title"> Enter your phone number* <br/>
-                    <input required={true} type="number" name="phonenumber" id="phonenumber" placeholder="Enter your phonenumber" onChange={(event) => setPhoneNo(event.target.value)}/>
+                    <input required={true} type="text" name="phonenumber" id="phonenumber" placeholder="Enter your phonenumber" onChange={(event) => setPhoneNo(event.target.value)}/>
                 </label>
 
                 <label id="input_title"> Enter your first address* <br/>
@@ -102,7 +107,7 @@ export function CreateModel(){
                 </label>
 
                 <label id="input_title">Enter your zip code* <br/>
-                    <input required={true} type="number" name="zipcode" id="zipcode" placeholder="Enter your zip code" onChange={(event) => setZip(event.target.value)}/>
+                    <input required={true} type="text" name="zipcode" id="zipcode" placeholder="Enter your zip code" onChange={(event) => setZip(event.target.value)}/>
                 </label>
 
 
