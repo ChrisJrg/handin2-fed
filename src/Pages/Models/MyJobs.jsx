@@ -1,12 +1,15 @@
 import "../../Styles/MyJobs.css"
 import {useEffect, useState} from "react";
 import edit_png from "../../assets/pencil-edit-button.svg";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+
 
 
 export function MyJobs(){
     const [jobs, setJobs] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const navigate = useNavigate();
 
 
     useEffect(()=>{
@@ -21,16 +24,18 @@ export function MyJobs(){
         }).then(response =>
             response.json())
             .then(data => {
+                console.log(data);
                 setJobs(data);
                 setLoading(false);
             })
             .catch(error => console.error('Error:', error));
-    })
+    }, [])
     if (loading) return <p>Loading...</p>;
 
     return(
         <>
             <div><text>My Jobs</text></div>
+            <section id="general-model-job-container">
             {jobs.map((job) => (
                 <section id="job-container-outer"  key={job.jobId}>
                     <section id="job-container">
@@ -41,12 +46,10 @@ export function MyJobs(){
                     <text>Extra information: {job.comments}</text>
                     </section>
 
-                        <Link to={`/my-jobs/:${job.jobId}`}>
-                    <button ><img id="edit" src={edit_png} alt="edit" /></button>
-                        </Link>
+                    <button onClick={() => navigate(`/my-jobs/${job.jobId}`)}><img id="edit" src={edit_png} alt="edit" /></button>
                 </section>
             ))}
-
+        </section>
         </>
     )
 }

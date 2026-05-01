@@ -1,3 +1,9 @@
+#general-model-job-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
 #job-container-outer {
     display: flex;
     flex-direction: row;

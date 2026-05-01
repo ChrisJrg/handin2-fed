@@ -1,0 +1,20 @@
+#single-job{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    align-self: center;
+    margin-top: 25px;
+    color:black;
+    align-items: center;
+}
+
+#model-single-job-expense{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    width:45%;
+    color:black;
+}
